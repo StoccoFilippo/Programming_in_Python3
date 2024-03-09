@@ -46,10 +46,11 @@ def save_file(movies, filename):
     # Save list to file
     confirm = input("Save unsaved changes (y/n): ")
     if confirm.lower() == "y":
+        sorted_movies=sorted(movies)
         with open(filename, "w") as file:
-            for movie in movies:
+            for movie in sorted_movies:
                 file.write(movie + ",")
-            print("Saved {0} items".format(len(movies)))
+            print("Saved {0} items".format(len(sorted_movies)))
             file.close()
     else:
         print("Changes not saved")
@@ -58,6 +59,8 @@ def save_file(movies, filename):
 
 def print_list(movies):
     # Print items in the list
+    movies=sorted(movies)
+    #movie in alphabetical order
     for y in movies:
         print("{0} : {1}".format(movies.index(y) + 1, y))
     y = ""
@@ -82,7 +85,7 @@ def load_list():
 
     if movies_file in os.listdir():
         with open(movies_file, "r") as movies_file:
-            movies = movies_file.read().rstrip(",").split(",")
+            movies = movies_file.read().rstrip(",").split(",") #in this way the last empty "," is not considered
             movies = [movie.strip() for movie in movies]
             if not movies:
                 print("-- no items are in the list--")
