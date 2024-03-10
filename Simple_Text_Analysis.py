@@ -49,7 +49,7 @@ def ask_words(words):
         modified_word = word.lower().strip()
         words.append(modified_word)
         print(
-            "The words just introduced is: {0}\n type stop to analyze the text so far typed".format(
+            "The words just introduced is: {0}\ntype stop to analyze the text so far typed".format(
                 modified_words
             )
         )
@@ -90,7 +90,7 @@ def stat(text, pr, word_count, frequency):
     num_markers = 0
     frequency = {}
     num_words = 0
-    print("\n\n Here the text correctly formatted: \n {0} ".format(text))
+    print("\n\nHere the text correctly formatted: \n{0} ".format(text))
     for char in text.replace(" ", ""):
         if char in marks:
             num_markers += 1
